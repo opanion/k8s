@@ -12,23 +12,23 @@ spec:
     resources:
       requests:
         memory: "64Mi"
-        cpu: "250mi"
+        cpu: "250m"
       limits:
-        memory: "128"
-        cpu: "500mi"
-     env:
-     - name: DB_PASSWORD
-       valueFrom:
-         secretKeyRef:
-           name: db-password
-           key: password
-     volumeMounts:
-     - name: config-volume
-       mountPath: /etc/candy-service/
-   volumes:
-   - name: config-volume
-     configMap:
-       name: candy-service-config
+        memory: "128Mi"
+        cpu: "500m"
+    env:
+    - name: DB_PASSWORD
+      valueFrom:
+        secretKeyRef:
+          name: db-password
+          key: password
+    volumeMounts:
+    - name: config-volume
+      mountPath: /etc/candy-service/
+  volumes:
+  - name: config-volume
+    configMap:
+      name: candy-service-config
        
        
      
