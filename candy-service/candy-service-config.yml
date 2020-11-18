@@ -3,7 +3,7 @@ kind: ConfigMap
 metadata:
   name: candy-service-config
 data: 
-  candy.cfg |-
+  candy.cfg: |-
     candy.peppermint.power=100000000
     candy.nougat-armor.strength=10
   
