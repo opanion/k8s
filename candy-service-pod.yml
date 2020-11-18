@@ -8,6 +8,7 @@ spec:
     fsGroup: 2000
   containers:
   - name: candy-service
+    image: linuxacademycontent/candy-service:1
     resources:
       requests:
         memory: "64Mi"
@@ -19,10 +20,15 @@ spec:
      - name: DB_PASSWORD
        valueFrom:
          secretKeyRef:
-           name: candy-service-secret
-           key: db_password
+           name: db-password
+           key: password
      volumeMounts:
      - name: config-volume
+       mountPath: /etc/candy-service/
+   volumes:
+   - name: config-volume
+     configMap:
+       name: candy-service-config
        
        
      
